@@ -103,3 +103,25 @@ ul.ingredients-list > li {
     font-size: 0.875rem;
     cursor: pointer;
 }
+
+.get-recipe-container button:disabled {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+.suggested-recipe-container {
+    color: #475467;
+    line-height: 28px;
+    font-size: 1.125rem;
+}
+
+.suggested-recipe-container h1,
+.suggested-recipe-container h2,
+.suggested-recipe-container h3 {
+    color: #141413;
+    font-weight: 600;
+}
+
+.recipe-error {
+    color: #B42318;
+}
