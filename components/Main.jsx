@@ -5,10 +5,7 @@ import { getRecipeFromIngredients } from "../ai"
 
 export default function Main() {
     const [ingredients, setIngredients] = React.useState([
-        "all the main spices",
-        "pasta",
-        "ground beef",
-        "tomato paste",
+      
     ])
     const [recipe, setRecipe] = React.useState("")
     const [error, setError] = React.useState("")
