@@ -4,10 +4,17 @@ import IngredientsList from "./IngredientsList"
 import { getRecipeFromIngredients } from "../ai"
 
 export default function Main() {
-    const [ingredients, setIngredients] = React.useState([])
+    const [ingredients, setIngredients] = React.useState(["chicken", "all the main spices", "corn", "heavy cream", "pasta"])
     const [recipe, setRecipe] = React.useState("")
     const [error, setError] = React.useState("")
     const [isLoading, setIsLoading] = React.useState(false)
+    const recipeSection = React.useRef(null)
+
+    React.useEffect(() => {
+        if (recipe !== "" && recipeSection.current !== null) {
+            recipeSection.current.scrollIntoView({ behavior: "smooth", block: "start" })
+        }
+    }, [recipe])
 
     function addIngredient(formData) {
         const newIngredient = formData.get("ingredient")
@@ -29,6 +36,14 @@ export default function Main() {
         }
     }
 
+    function startOver() {
+        setIngredients([])
+        setRecipe("")
+        setError("")
+        setIsLoading(false)
+        window.scrollTo({ top: 0, behavior: "smooth" })
+    }
+
     const showRecipe = isLoading || recipe || error
 
     return (
@@ -43,6 +58,7 @@ export default function Main() {
                 <button>Add ingredient</button>
             </form>
             {ingredients.length > 0 && (
+
                 <IngredientsList
                     ingredients={ingredients}
                     getRecipe={getRecipe}
@@ -50,7 +66,13 @@ export default function Main() {
                 />
             )}
             {showRecipe && (
-                <ClaudeRecipe recipe={recipe} error={error} isLoading={isLoading} />
+                <ClaudeRecipe
+                    ref={recipeSection}
+                    recipe={recipe}
+                    error={error}
+                    isLoading={isLoading}
+                    onStartOver={startOver}
+                />
             )}
         </main>
     )
