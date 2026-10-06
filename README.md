@@ -1,8 +1,8 @@
 # chef-Claude:-
-is a recipe generator app that turns the ingredients you already have into a ready to cook recipe.
+is a recipe generator app that turns the ingredients you already have into a ready to cook recipe..
 
 ## Live demo
-try it here: https://chefclaudee.netlify.app/
+try it here:[https://chefclaudee.netlify.app/]
 
 #how it works:-
 1. Add ingredients : Type an ingredient (for example , pasta) and click Add Ingredient , Each one is added to your Ingredients on Hands list.
